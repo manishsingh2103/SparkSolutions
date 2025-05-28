@@ -1,0 +1,6 @@
+pyspark
+yfinance
+pandas
+ta
+pytest
+pytest-mock

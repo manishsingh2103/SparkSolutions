@@ -1,0 +1,21 @@
+version: '3.8' # Specifies the Docker Compose file format version
+
+services:
+  spark-stock-app:
+    build:
+      context: . # Specifies the build context is the current directory
+      dockerfile: Dockerfile # Specifies the Dockerfile to use
+    image: stock-streaming-app:latest # Names the image to be built
+    container_name: stock-streaming-container # Names the container
+    # If the Spark application needs specific environment variables,
+    # they can be added here. For example:
+    # environment:
+    #   - SPARK_MASTER_URL=local[*] # Example, though our app sets this internally
+    #   - PYTHONUNBUFFERED=1 # Good for seeing logs immediately
+    ports:
+      # If your Spark UI is accessible and you want to map it (usually 4040, 4041, etc.)
+      # This might require changes in Spark config if not running in local mode,
+      # or if the app itself doesn't expose it by default in client mode.
+      # For now, we'll comment it out as our app runs in local mode and is non-interactive.
+      # - "4040:4040"
+      pass
